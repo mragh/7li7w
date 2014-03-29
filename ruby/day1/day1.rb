@@ -29,3 +29,4 @@ end
 #Run a Ruby program from a file
 #ruby day1.rb
 #Bonus - Write a program that picks a random number. Let a player guess the number telling the player whether too low or high
+#ruby random_guess.rb
