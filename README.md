@@ -1,6 +1,7 @@
 7li7w
 =====
 
-Working through Seven Languages in Seven Weeks
+Working through Seven Languages in Seven Weeks  
 
- ![Placekitten](http://placekitten.com/g/650/400 "For no good reason ...")
+
+ ![Seven Languages in Seven Weeks](http://imagery.pragprog.com/products/195/btlang.jpg)
