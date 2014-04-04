@@ -41,13 +41,66 @@ dim := method(x, y,
     matrix := Matrix clone; 
     for(i, 0, y-1, innerList := list(); 
     for(j, 0, x-1, innerList append(0)); 
+    matrix x := x
+    matrix y := y
     matrix append(innerList)))
 Matrix set := method(x, y, value, self at(y) atPut(x, value))
 Matrix get := method(x, y, self at(y) at(x))
-matrix := dim(10,20) 
-matrix set(1, 1, 14)
-matrix get(1, 1) println
+matrix := dim(2,4) 
+matrix set(1, 3, 14)
+matrix set(0, 2, 12)
+matrix get(1, 3) println
 matrix println
 # 6. Bonus: Write a tranpsose method so that (new_matrix get(y, x)) == matrix get(x, y) on original list
-# 7. Write th ematrix to a file, read matrix from a file
+1234
+5678
+
+Matrix transpose := method(
+    transposedMatrix := Matrix clone;
+    y := self y
+    x := self x
+    x println
+    y println
+    for(i, 0, x-1, innerList := list();
+    for(j, 0, y-1, innerList append(self get(i, j))); 
+    transposedMatrix append(innerList));
+    return transposedMatrix)
+
+evilMatrix := matrix transpose
+
+evilMatrix println
+matrix println
+matrix get(1, 3) println
+evilMatrix get(3, 1) println
+# 7. Write the matrix to a file, read matrix from a file
+f := File with("matrix.txt")
+f remove
+f openForUpdating
+f write(matrix serialized())
+f close
+reloadedMatrix := doFile("matrix.txt")
+"Matrix reloaded" println
+reloadedMatrix println
 # 8. Write a program that gives you 10 tries to guess random number from 1-100. Give a hint of hotter or colder after first guess.
+randomNumber := Random value( 1, 100) floor;
+guesses := 0
+allowed := 10
+lastGuess := 0
+stillGuessing := true
+FailureException := Exception clone
+evaluateProgress := method(guess, target, last, if(((guess - target) abs) < ((last - target) abs)) then("Warmer!" println) else("Colder! " println))
+while(stillGuessing, 
+    "Guess a number between 1 and 100!" println;
+    guesses = guesses + 1;
+    if(guesses >= allowed) then(randomNumber println; FailureException raise("You lose!!!"));
+    userInput := File standardInput readLine asNumber;;
+    if(userInput == randomNumber) then (stillGuessing = false; "GOT IT" println) else(
+        if(guesses > 1) then(evaluateProgress(userInput, randomNumber, lastGuess));
+        lastGuess = userInput;
+        "Guess again!" println;
+    );
+    
+    )
+
+
+
