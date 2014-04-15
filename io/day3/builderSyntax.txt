@@ -1,0 +1,5 @@
+
+obj := Builder ul(
+        li("Io"),
+        li("Lua"),
+        li(a({"href":"something"},"JavaScript")))
