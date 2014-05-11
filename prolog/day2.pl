@@ -12,4 +12,4 @@ smallest([Head|Tail], SmallestTail) :- smallest(Tail, SmallestTail), Head > Smal
 sorted([Head|[]], Head).
 sorted([Head|[Head1|[]]], [Head,Head1]) :- Head < Head1. 
 sorted([Head|[Head1|[]]], [Head1,Head]) :- Head > Head1. 
-sorted(UnsortedList, [FirstOfSorted|RestOfSorted]) :- smallest(UnsortedList, FirstOfSorted), subtract(UnsortedList, [FirstOfSorted], RestOfUnsorted), sorted(RestOfUnsorted, Sorted).
+sorted(UnsortedList, [FirstOfSorted|RestOfSorted]) :- smallest(UnsortedList, FirstOfSorted), subtract(UnsortedList, [FirstOfSorted], RestOfUnsorted), sorted(RestOfUnsorted, RestOfSorted).
