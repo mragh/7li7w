@@ -1,1 +1,3 @@
 prolog/.vagrant/
+erlang/.vagrant/
+*.beam
