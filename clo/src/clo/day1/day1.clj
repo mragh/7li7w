@@ -1,3 +1,5 @@
+(ns clo.day1.day1)
+
 (defn big [st n] (> (count st) n))
 (big "blah" 3)
 (big "blah" 4) 
