@@ -1,7 +1,8 @@
 (ns clo.core-test
   (:require [clojure.test :refer :all]
             [clo.day1.day1 :refer :all]
-            [clo.day2.day2 :refer :all])
+            [clo.day2.day2 :refer :all]
+            [clo.day3.day3 :refer :all])
   (:import [clo.day2.day2 Cat Dog]))
 
 (deftest big-test
@@ -38,3 +39,17 @@
     (is (= "Monty" (.getName dog)))
     )
   )
+
+(deftest account-update-test 
+  (testing "Can debit"
+    (def acct 1)
+    (debit acct 5)
+    (is (= -5 (accounts acct)))
+  )
+  (testing "Can credit"
+    (def acct 0)
+    (credit acct 47.50)
+    (credit acct 4.80)
+    (is (= 52.30 (accounts acct)))
+  )
+)
